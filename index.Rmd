@@ -1,6 +1,6 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
+author: "Andrew Zonneveld"
 description: "My final project"
 output:
   distill::distill_article:
@@ -11,4 +11,6 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to two main areas from which I will choose one. The first is the funding levels of public education in North Carolina including teaching salaries, bonuses for advanced degrees, supplemental funding from counties, etc., and how it compares to the of private schools. I'm interested in this area because North Carolina has granted millions of dollars of private school vouchers and funding while simultaneously decrease funding for public education. The state is known throughout the US for having one of the lowest levels of teacher pay compared to other states.
+  
+The second area of data I would like to explore centers around lawmakers and their relatives, specifically how their net worth, real estate, assets, investments, compensation, etc., have evolved over the years. I would like to do a comparative analysis of some of the longest serving members of Congress, proportional across parties and chambers. 
