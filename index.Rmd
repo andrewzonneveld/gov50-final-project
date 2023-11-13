@@ -17,3 +17,56 @@ The second area of data I would like to explore centers around lawmakers and the
 
 Does more funding for public education increase student achievement? In this study I hope to explore the impact of NC K-12 public school funding on student achievement. I hypothesize that as more money is dedicated to the NC Department of Public Instruction for use in K-12 schools and paying faculty salaries, student achievement will increase. Student achievement is the dependent variable and is measured in two ways. The first method of measuring student achievement is through analyzing the graduation rate of high school students in North Carolina. The second method of measuring student achievement is through analyzing the percentage of students in grades 3-8 who met the proficiency standards for reading and mathematics as defined by the NC Department of Public Instruction. These two methods of measuring student achievement will independently be compared the percent of the overall NC state budget that was set aside for public education, which is the explanatory variable. The reason for comparing achievement to the percent of the state budget designated for K-12 education rather than the actual budget itself is because overtime states will always increase the budget of public K-12 education as their populations grow and more students are expected to enroll. The percent set aside for K-12 schools, however, changes each year as state legislatures decide how much of a priority funding public education is. As the study is conducted, if student achievement grows with higher percentages of funding, my hypothesis will be true. If student achievement grows or is stagnant regardless of an increase in the percentage of funding, then my hypothesis will be false. When I run the regression of student achievement on the budget, a positive coefficient would prove support for the hypothesis.
 
+## Explanation of Data and Variables
+From the 2003-2004 school year to the 2022-2023 school year, data was collected from the NC Department of Public Instruction, the NC Board of Education, and the National Center for Education Statistics. Below are the variables and their explanations:
+
+  dpi_budget    = The total budget in whole dollars set aside for the Department of Public Instruction
+  percent       = Percent of the NC state budget set aside for the Depart of Public Instruction
+  students      = The whole number of students expected to be enrolled in K-12 schools during the school year
+  reg_school    = The whole number of public schools operated by the state or an approved Local Education Agency
+  char_school   = The whole number of charter schools recognized by the state and receiving funding
+  perPupil      = The amount of funding (dpi_budget) per student
+  teachers      = The whole number of teaching positions authorized by the state
+  avg_salary    = The average compensation of all teachers within the state
+  start_salary  = The minimum salary a teacher in their first year can expect to earn
+  grad_rate     = The percent of students who graduated high school in the given year
+  testing       = The percent of students in grades 3-8 who achieved proficiency in both reading and mathematics
+
+
+
+## First Data Visualization
+To better understand the background associated with this study, take a look at this visualization. This graph shows the whole dollar amount of the budget appropriated for public K-12 education in North Carolina. The data shows a consistent increase in the budget, which is due to enrollments increasing year after year. The red line, however, demonstrates that the actual percent of the state budget allocated for public K-12 education does not always increase. By looking at the percent of the state budget allocated to education, we can compare funding across the two decades of data in an unbiased manner.
+
+```{r, echo = FALSE}
+## Load Libraries
+library(ggplot2)
+library(dplyr)
+
+nc_education <- read.csv("data/nc_education.csv")
+
+## Modify dpi_budget to fit within the graph
+coeff <- 1e10
+dpi_budget_limit <- (nc_education$dpi_budget)/coeff
+
+## Bar Plot w/ Percent line overlay
+visual2 <- ggplot(nc_education, aes(x = year)) +
+  geom_bar(aes(y = dpi_budget_limit), stat = "identity", fill = "blue", alpha = 0.7) +
+  geom_line(aes(y = percent, group = 1, color = "red"), size = 1.5) +
+  labs(title = "Scaled DPI Budget",
+       x = "Year",
+       y = "Scaled DPI Budget",
+       color = "Legend") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(
+    name = "Percent of State Budget",
+    sec.axis = sec_axis(~., name = "Scaled Budget (10 Billions)"),
+    breaks = seq(0, 1.3, by = 0.1),
+    limits = c(0, 1.3)
+  )
+
+visual2
+
+
+```
+
+
