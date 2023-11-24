@@ -62,11 +62,15 @@ visual2
 ## First Analysis
 The following scatter plots demonstrate two regressions, one comparing student achievement in the form of testing results to the DPI budget and the second comparing high school graduation rates to the DPI budget.
 
+The first regression between testing and DPI spending shows a negative regression, meaning that as the budget increased, the percent of students who earned proficient scores decreased. At the surface, this would disprove my earlier hypothesis that as funding increases so does student achievement, however, there is underlying context provided with the data. According to the State of North Carolina, the percent of students who earned proficient scores dramatically decreases each time the testing is made more rigorous. Therefore, the negative regression is not necessarily a result of increased funding, but rather stricter curriculum requirements. This is why acknowledging confounding variables and additional variables is necessary to ensure quality analysis.
+
+In the second regression, there is a positive regression that proves my hypothesis to be true. As funding increases, so did the graduation rate of high school students. Similar to the first regression, additional context can help provide an explanation of the data. While it is true that additional spending likely helped provide additional resources for students, legislation like "No Child Left Behind" could also have helped to increase graduation rates regardless of the budget.
+
+Together, these two regressions counteract one another and further analysis is necessary. I will continue to do so by looking at average teacher compensation and starting salaries as well as the percent of the state budget dedicated to education, comparing all of these to the two types of student achievement.
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 ## Budget Regression
 budget_linear1 <- lm(testing ~ dpi_budget_limit, data = nc_education)
-
-summary(budget_linear1)
 
 ## Budget Plot
 budget_regression_plot <- ggplot(nc_education, aes(x = dpi_budget_limit, y = testing)) +
@@ -81,8 +85,6 @@ budget_regression_plot
 
 ## Graduation Regression
 graduation_linear1 <- lm(grad_rate ~ dpi_budget_limit, data = nc_education)
-
-summary(graduation_linear1)
 
 ## Graduation Plot
 graduation_regression_plot <- ggplot(nc_education, aes(x = dpi_budget_limit, y = grad_rate)) +

@@ -1532,48 +1532,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h2 id="first-analysis">First Analysis</h2>
 <p>The following scatter plots demonstrate two regressions, one comparing student achievement in the form of testing results to the DPI budget and the second comparing high school graduation rates to the DPI budget.</p>
+<p>The first regression between testing and DPI spending shows a negative regression, meaning that as the budget increased, the percent of students who earned proficient scores decreased. At the surface, this would disprove my earlier hypothesis that as funding increases so does student achievement, however, there is underlying context provided with the data. According to the State of North Carolina, the percent of students who earned proficient scores dramatically decreases each time the testing is made more rigorous. Therefore, the negative regression is not necessarily a result of increased funding, but rather stricter curriculum requirements. This is why acknowledging confounding variables and additional variables is necessary to ensure quality analysis.</p>
+<p>In the second regression, there is a positive regression that proves my hypothesis to be true. As funding increases, so did the graduation rate of high school students. Similar to the first regression, additional context can help provide an explanation of the data. While it is true that additional spending likely helped provide additional resources for students, legislation like “No Child Left Behind” could also have helped to increase graduation rates regardless of the budget.</p>
+<p>Together, these two regressions counteract one another and further analysis is necessary. I will continue to do so by looking at average teacher compensation and starting salaries as well as the percent of the state budget dedicated to education, comparing all of these to the two types of student achievement.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-Call:
-lm(formula = testing ~ dpi_budget_limit, data = nc_education)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.17536 -0.04550  0.01057  0.06197  0.08686 
-
-Coefficients:
-                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)        1.5600     0.1193  13.073 5.90e-10 ***
-dpi_budget_limit  -1.2852     0.1393  -9.226 8.33e-08 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.07917 on 16 degrees of freedom
-  (2 observations deleted due to missingness)
-Multiple R-squared:  0.8418,    Adjusted R-squared:  0.8319 
-F-statistic: 85.11 on 1 and 16 DF,  p-value: 8.328e-08</code></pre>
-<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
-<pre><code>
-Call:
-lm(formula = grad_rate ~ dpi_budget_limit, data = nc_education)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.08281 -0.02610  0.01026  0.03053  0.05283 
-
-Coefficients:
-                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)       0.49205    0.05807   8.474 1.07e-07 ***
-dpi_budget_limit  0.35625    0.06554   5.436 3.65e-05 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.04461 on 18 degrees of freedom
-Multiple R-squared:  0.6214,    Adjusted R-squared:  0.6004 
-F-statistic: 29.55 on 1 and 18 DF,  p-value: 3.651e-05</code></pre>
-<p><img src="index_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /><img src="index_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
