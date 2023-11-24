@@ -62,7 +62,7 @@ visual2
 ## First Analysis
 The following scatter plots demonstrate two regressions, one comparing student achievement in the form of testing results to the DPI budget and the second comparing high school graduation rates to the DPI budget.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 ## Budget Regression
 budget_linear1 <- lm(testing ~ dpi_budget_limit, data = nc_education)
 
