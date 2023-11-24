@@ -27,7 +27,7 @@ dpi_budget = The total budget in whole dollars set aside for the Department of P
 
 To better understand the background associated with this study, take a look at this visualization. This graph shows the whole dollar amount of the budget appropriated for public K-12 education in North Carolina. The data shows a consistent increase in the budget, which is due to enrollments increasing year after year. The red line, however, demonstrates that the actual percent of the state budget allocated for public K-12 education does not always increase. By looking at the percent of the state budget allocated to education, we can compare funding across the two decades of data in an unbiased manner.
 
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 ## Load Libraries
 library(ggplot2)
 library(dplyr)
@@ -62,7 +62,7 @@ visual2
 ## First Analysis
 The following scatter plots demonstrate two regressions, one comparing student achievement in the form of testing results to the DPI budget and the second comparing high school graduation rates to the DPI budget.
 
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 ## Budget Regression
 budget_linear1 <- lm(testing ~ dpi_budget_limit, data = nc_education)
 
