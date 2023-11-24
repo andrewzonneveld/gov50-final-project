@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/NC Budget Information.xlsx","data/nc_education.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/NC Budget Information.xlsx","data/nc_education.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-2-2.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1524,23 +1524,56 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Does more funding for public education increase student achievement? In this study I hope to explore the impact of NC K-12 public school funding on student achievement. I hypothesize that as more money is dedicated to the NC Department of Public Instruction for use in K-12 schools and paying faculty salaries, student achievement will increase. Student achievement is the dependent variable and is measured in two ways. The first method of measuring student achievement is through analyzing the graduation rate of high school students in North Carolina. The second method of measuring student achievement is through analyzing the percentage of students in grades 3-8 who met the proficiency standards for reading and mathematics as defined by the NC Department of Public Instruction. These two methods of measuring student achievement will independently be compared the percent of the overall NC state budget that was set aside for public education, which is the explanatory variable. The reason for comparing achievement to the percent of the state budget designated for K-12 education rather than the actual budget itself is because overtime states will always increase the budget of public K-12 education as their populations grow and more students are expected to enroll. The percent set aside for K-12 schools, however, changes each year as state legislatures decide how much of a priority funding public education is. As the study is conducted, if student achievement grows with higher percentages of funding, my hypothesis will be true. If student achievement grows or is stagnant regardless of an increase in the percentage of funding, then my hypothesis will be false. When I run the regression of student achievement on the budget, a positive coefficient would prove support for the hypothesis.</p>
 <h2 id="explanation-of-data-and-variables">Explanation of Data and Variables</h2>
 <p>From the 2003-2004 school year to the 2022-2023 school year, data was collected from the NC Department of Public Instruction, the NC Board of Education, and the National Center for Education Statistics. Below are the variables and their explanations:</p>
-<p>dpi_budget = The total budget in whole dollars set aside for the Department of Public Instruction
-percent = Percent of the NC state budget set aside for the Depart of Public Instruction
-students = The whole number of students expected to be enrolled in K-12 schools during the school year
-reg_school = The whole number of public schools operated by the state or an approved Local Education Agency
-char_school = The whole number of charter schools recognized by the state and receiving funding
-perPupil = The amount of funding (dpi_budget) per student
-teachers = The whole number of teaching positions authorized by the state
-avg_salary = The average compensation of all teachers within the state
-start_salary = The minimum salary a teacher in their first year can expect to earn
-grad_rate = The percent of students who graduated high school in the given year
-testing = The percent of students in grades 3-8 who achieved proficiency in both reading and mathematics</p>
+<p>dpi_budget = The total budget in whole dollars set aside for the Department of Public Instruction percent = Percent of the NC state budget set aside for the Depart of Public Instruction students = The whole number of students expected to be enrolled in K-12 schools during the school year reg_school = The whole number of public schools operated by the state or an approved Local Education Agency char_school = The whole number of charter schools recognized by the state and receiving funding perPupil = The amount of funding (dpi_budget) per student teachers = The whole number of teaching positions authorized by the state avg_salary = The average compensation of all teachers within the state start_salary = The minimum salary a teacher in their first year can expect to earn grad_rate = The percent of students who graduated high school in the given year testing = The percent of students in grades 3-8 who achieved proficiency in both reading and mathematics</p>
 <h2 id="first-data-visualization">First Data Visualization</h2>
 <p>To better understand the background associated with this study, take a look at this visualization. This graph shows the whole dollar amount of the budget appropriated for public K-12 education in North Carolina. The data shows a consistent increase in the budget, which is due to enrollments increasing year after year. The red line, however, demonstrates that the actual percent of the state budget allocated for public K-12 education does not always increase. By looking at the percent of the state budget allocated to education, we can compare funding across the two decades of data in an unbiased manner.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="first-analysis">First Analysis</h2>
+<p>The following scatter plots demonstrate two regressions, one comparing student achievement in the form of testing results to the DPI budget and the second comparing high school graduation rates to the DPI budget.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+lm(formula = testing ~ dpi_budget_limit, data = nc_education)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.17536 -0.04550  0.01057  0.06197  0.08686 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        1.5600     0.1193  13.073 5.90e-10 ***
+dpi_budget_limit  -1.2852     0.1393  -9.226 8.33e-08 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.07917 on 16 degrees of freedom
+  (2 observations deleted due to missingness)
+Multiple R-squared:  0.8418,    Adjusted R-squared:  0.8319 
+F-statistic: 85.11 on 1 and 16 DF,  p-value: 8.328e-08</code></pre>
+<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+<pre><code>
+Call:
+lm(formula = grad_rate ~ dpi_budget_limit, data = nc_education)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.08281 -0.02610  0.01026  0.03053  0.05283 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       0.49205    0.05807   8.474 1.07e-07 ***
+dpi_budget_limit  0.35625    0.06554   5.436 3.65e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.04461 on 18 degrees of freedom
+Multiple R-squared:  0.6214,    Adjusted R-squared:  0.6004 
+F-statistic: 29.55 on 1 and 18 DF,  p-value: 3.651e-05</code></pre>
+<p><img src="index_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
